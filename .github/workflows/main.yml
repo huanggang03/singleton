@@ -159,5 +159,6 @@ jobs:
           str=$(printf '=%.0s' {1..50})
           cd $GITHUB_WORKSPACE/devops/performancetest
           pip install -r requirements.txt
+          python -V
           python performance.py
           
