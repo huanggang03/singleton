@@ -140,13 +140,13 @@ jobs:
           distribution: 'adopt'
           java-version: '8'
       - name: Set up Python
-        uses: actions/setup-pyton@v4
+        uses: actions/setup-python@v4
         with:
           python-version: '3.x'
           architecture: 'x64'
       - name: Performance Test
         run: |
-          git clone --branch=devops https://github.com/vmware/singleton.git devops
+          git clone --branch=devops https://github.com/mabeijing/singleton.git devops
           cd $GITHUB_WORKSPACE/g11n-ws && ./gradlew build -x test
           cp $GITHUB_WORKSPACE/devops/deploy/i18n-service/Dockerfile $GITHUB_WORKSPACE/publish/
           cd $GITHUB_WORKSPACE/publish && ls
@@ -158,5 +158,6 @@ jobs:
           docker cp l10n singleton:/
           str=$(printf '=%.0s' {1..50})
           cd $GITHUB_WORKSPACE/devops/performancetest
-          pip install -r requirement.txt
+          pip install -r requirements.txt
           python performance.py
+          
