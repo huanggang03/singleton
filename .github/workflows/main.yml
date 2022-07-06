@@ -159,8 +159,8 @@ jobs:
           str=$(printf '=%.0s' {1..50})
           cd $GITHUB_WORKSPACE/devops/performancetest
           pip install -r requirements.txt
-          /proc/cpuinfo | grep 'model name'
-          /proc/cpuinfo | grep "cpu cores"
+          cat /proc/cpuinfo | grep 'model name'
+          cat /proc/cpuinfo | grep "cpu cores"
           free -m
           python -V
           python performance.py
